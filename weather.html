@@ -1,0 +1,111 @@
+<!--Author Robert Tunn, 2021-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta weatherPortal="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Running App - Weather and Route Data</title>
+
+	<!--EXTERNAL JAVASCRIPT AND CSS FOR MAPBOX API-->
+	<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.js"></script>
+	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.2/mapbox-gl.css" rel="stylesheet" />
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.min.js"></script>
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.3.0/mapbox-gl-geocoder.css" type="text/css">
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js"></script>
+	<link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.css" type="text/css" />
+	<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.js"></script>
+	<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.0/mapbox-gl.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="apple-touch-icon" href="apple-touch-icon.png">
+	<link rel="stylesheet" href="css/weather.css">
+	<link rel="stylesheet" href="https://use.typekit.net/bsg3nyn.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://kit.fontawesome.com/82d4062eff.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div class="container">
+		<h1>Running App - Weather, GeoCaching, GPS and Route Data User Interface</h1>
+		<div class="form-container">
+			<br>
+			<h2>Check the weather at a location</h2>
+			<br>
+			<div class="form-format">
+				<h3>Enter the location's name if it is a large town or city:</h3>
+				
+				<!--Take user input for location based on name-->
+				<div class="inputLocation">
+					<input type="text" placeholder="Enter location" class="locationInput">
+					<input type="submit" value="Enter" class="placeSubmit">
+				</div>
+				<br><br>
+				<h3>Don't know the latitude and longitude? Use forward geoCaching by entering the address here:</h3>
+
+				<!--Take user input for location based on name-->
+				<div class="inputAddress">
+					<input type="text" placeholder="Enter address" class="address">
+					<input type="submit" value="Enter" class="addressInputSubmit">
+				</div>
+				<br>
+
+				<h3>Otherwise enter the location's GPS coordinates:</h3>
+					<!--Take user input for location based on coordinates-->
+					<!--Latitude then longitude-->
+					<div class="inputLatitude">
+						<input type="text" placeholder="Enter the latitude" class="latCoord">
+						<input type="text" placeholder="Enter the longitude" class="lonCoord">
+						<input type="submit" value="Enter" class="coordsSubmit">
+
+						<!--Alert the variables to screen-->
+						<div class="weatherWindow">
+							<h1 class="location" id="name"></h1>
+							<p class="sunrise"></p>
+							<p class="sunset"></p>
+							<p class="temp"></p>
+							<p class="humidity"></p>
+							<p class="wind"></p>
+							<p class="desc"></p>
+							<p class="latitude"></p>
+							<p class="longitude"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="map-box">
+		<br>
+		<h2>Create a suggested route</h2>
+		<br>
+		<h4>Click on the start and end points for your run and a suggested route will be displayed along with 
+			distance and estimated duration, works for cross country routes</h4>
+		<h4>Click on the starting and finishing points then hit enter on your keyboard</h4>
+		<br>	
+		<h4>Find the starting point</h4>
+		<div class="map-display">
+			<!--SEARCH BOX GEOCODER-->
+			<div class="geocoder">
+				<div id="geocoder"></div>
+			</div>
+
+			<!--INTERACTIVE MAP-->
+			<div id="map"></div>
+
+			<!--ROUTE OUTPUT INSTRUCTIONS-->
+			<div id="instructions">
+				<div id="calculated-line"></div>
+			</div>
+
+			<!--LINK TO SINGLE JAVASCRIPT FUNCTIONALITY FOR ENTIRE PAGE-->
+			<script src="javascript/portal.js"></script>
+		</div>
+	</div>
+</body>
+
+</html>
