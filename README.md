@@ -1,6 +1,8 @@
 # Front-end Weather, GPS Coords and 3D Mapbox User Interface
 
-HTML, CSS and Javascript 
+This is purely functional code devoid of any meaningful styling
+
+HTML and Javascript 
 
 APIs from:
 
